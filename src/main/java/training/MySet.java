@@ -1,5 +1,8 @@
 package training;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simplified (and non-generic) implementation of <code>java.util.Set&lt;E&gt;</code>.
  * Stores <code>Object</code> and makes sure that all <code>Object</code>
@@ -8,12 +11,17 @@ package training;
  */
 public class MySet {
 
+    private List<Object> objectList = new ArrayList<>();
+
     public MySet() {
-        // constructor implementation
+        // constructor implementation --> leerer Konstruktor, da leere Liste als Attribut vorhanden
     }
     
     public MySet(Object[] initialElements) {
         // constructor implementation
+        for (int i = 0; i < initialElements.length; i++) {
+            objectList.add(initialElements[i]);
+        }
     }
 
     /**
@@ -22,7 +30,7 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        return;
+        objectList.add(obj);
     }
 
     /**
@@ -31,7 +39,7 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-        return;
+        objectList.remove(obj);
     }
 
     /**
@@ -41,14 +49,18 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        return false;
+        if (objectList.contains(obj)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Returns the number of elements in set.
      */
     public int size() {
-        return 0;
+        return objectList.size();
     }
 
     /**
@@ -56,7 +68,7 @@ public class MySet {
      * @return <code>true</code> if there are no elements
      */
     public boolean isEmpty() {
-        return true;
+        return objectList.isEmpty();
     }
 
 }
