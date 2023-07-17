@@ -14,10 +14,15 @@ public class MySet {
 
     public MySet() {
         // constructor implementation
+        objectList = new ArrayList<>();
     }
 
     public MySet(Object[] initialElements) {
         // constructor implementation
+        objectList = new ArrayList<>();
+        for (Object obj : initialElements) {
+            add(obj);
+        }
 
     }
 
