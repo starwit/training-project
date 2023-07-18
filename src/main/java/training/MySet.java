@@ -51,7 +51,7 @@ public class MySet {
     public boolean contains(Object obj) {
         if (memory.contains(obj)) {
             return true;
-        }else {
+        }else{
             return false;
         }
     }
