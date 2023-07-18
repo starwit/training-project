@@ -68,6 +68,7 @@ public class MySet {
         return (mySet.length == 0);
     }
 
+    // gets the index of the given object within the array, -1 if not found
     private int getIndex(Object obj) {
         for (int i=0; i < mySet.length; i++) {
             if (mySet[i].equals(obj)) {
@@ -77,6 +78,7 @@ public class MySet {
         return -1;
     }
 
+    // creates a new array without the element at the given index
     private void removeIndex(int i) {
         var temp = mySet;
         mySet = new Object[mySet.length - 1];
@@ -88,5 +90,4 @@ public class MySet {
            }
         }
     }
-
 }
