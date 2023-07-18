@@ -1,7 +1,6 @@
 package training;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simplified (and non-generic) implementation of <code>java.util.Set&lt;E&gt;</code>.
@@ -10,16 +9,16 @@ import java.util.List;
  * <code>Object</code> equality is based on <code>Object.equals()</code>.
  */
 public class MySet {
-    private List<Object> objectList = new ArrayList<>();
+    private int[] objectArray;
 
     public MySet() {
         // constructor implementation
-        objectList = new ArrayList<>();
+        objectArray = new int[5];
     }
 
     public MySet(Object[] initialElements) {
         // constructor implementation
-        objectList = new ArrayList<>();
+        objectArray = new int[5];
         for (Object obj : initialElements) {
             add(obj);
         }
@@ -33,7 +32,16 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        objectList.add(obj);
+        if (!contains(obj)){
+            for (int i = 0; i < objectArray.length; i++) {
+                System.arraycopy(objectArray);
+
+            }
+
+            }
+
+        }
+        objectArray.add(obj);
     }
 
     /**
@@ -43,7 +51,7 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-        objectList.remove(obj);
+        objectArray.remove(obj);
     }
 
     /**
@@ -54,7 +62,7 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        if (objectList.contains(obj)) {
+        if (objectArray.contains(obj)) {
             return true;
         } else {
             return false;
@@ -65,7 +73,7 @@ public class MySet {
      * Returns the number of elements in set.
      */
     public int size() {
-        return objectList.size();
+        return objectArray.size();
     }
 
     /**
@@ -74,7 +82,7 @@ public class MySet {
      * @return <code>true</code> if there are no elements
      */
     public boolean isEmpty() {
-        return objectList.isEmpty();
+        return objectArray.isEmpty();
     }
 
 }
