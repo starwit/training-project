@@ -16,7 +16,7 @@ public class MySet {
     public MySet() {
         // constructor implementation
         //Object[] objectArray = new Object[100];
-        // list<Object> objectlist = new ArrayList<>();
+
     }
     /*public MySet(Object[] initialElements) {
         // constructor implementation
