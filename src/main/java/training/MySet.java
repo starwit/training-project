@@ -11,16 +11,18 @@ import java.util.List;
  */
 public class MySet {
 
-    private List<Object> objectList;
+    private Object[] objectArray;
+    private int size;
 
     public MySet() {
         // constructor implementation
-        objectList = new ArrayList<>();
+        objectArray = new Object[1000];
+        size = 0;
     }
     
     public MySet(Object[] initialElements) {
         // constructor implementation
-        objectList = new ArrayList<>();
+        objectArray = new Object[1000];
         for (Object obj : initialElements) {
             add(obj);
         }
@@ -32,7 +34,14 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        objectList.add(obj);
+        if (!contains(obj)) {
+            if (size < objectArray.length) {
+                objectArray[size] = obj;
+                size++;
+            } else {
+                System.out.println("Set full! Can't add more Elements.");
+            }
+        }
     }
 
     /**
@@ -41,7 +50,19 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-        objectList.remove(obj);
+        int index = -1;
+        for (int i = 0; i < size; i++) {
+            if (objectArray[i].equals(obj)) {
+                index = i;
+                break;
+            }
+        } if (index != -1) {
+            for (int i = index; i < size -1; i++) {
+                objectArray[i] = objectArray[i+1];
+            }
+            objectArray[size-1] = null;
+            size--;
+        }
     }
 
     /**
@@ -51,14 +72,19 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        return objectList.contains(obj);
+        for (int i = 0; i < size; i++) {
+            if (objectArray[i].equals(obj)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
      * Returns the number of elements in set.
      */
     public int size() {
-        return objectList.size();
+        return size;
     }
 
     /**
@@ -66,7 +92,7 @@ public class MySet {
      * @return <code>true</code> if there are no elements
      */
     public boolean isEmpty() {
-        return objectList.isEmpty();
+        return size == 0;
     }
 
 }
