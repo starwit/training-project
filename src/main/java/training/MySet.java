@@ -11,8 +11,7 @@ import java.util.List;
  * <code>Object</code> equality is based on <code>Object.equals()</code>.
  */
 public class MySet {
-    private List<Object> objectList = new ArrayList<>();
-
+    private List<Object> memory = new ArrayList<>();
 
     public MySet() {
         // constructor implementation
@@ -30,8 +29,7 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        List<Object> objectList = new ArrayList<>();
-        objectList.add(obj);
+        memory.add(obj);
         return;
     }
 
@@ -51,26 +49,29 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        if (objectList.contains(obj)) {
+        if (memory.contains(obj)) {
             return true;
-        }else{
-        return false;
+        }else {
+            return false;
+        }
     }
 
     /**
      * Returns the number of elements in set.
      */
+
     public int size() {
-        return 0;
+
+        return memory.size();
     }
 
     /**
      * Returns whether this set does not contain any elements.
      * @return <code>true</code> if there are no elements
      */
-    public boolean isEmpty() {
-        return true;
-        }
+    public boolean isEmpty () {
+
+            return true;
 
     }
 }
