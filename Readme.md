@@ -18,3 +18,5 @@ The following example describes a [unit](https://en.wikipedia.org/wiki/Unit_test
         assertEquals(0, set.size());
     }
 ```
+### Examples with images
+![Wikipedia Rulez!](docs/images/Wikipedia-logo-v2.svg.png "Wikipedia")
