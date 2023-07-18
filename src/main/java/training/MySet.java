@@ -11,16 +11,18 @@ import java.util.List;
  */
 public class MySet {
 
-    private List<Object> objectList = new ArrayList<>();
+    private Object[] objects;
 
     public MySet() {
-        // constructor implementation --> leerer Konstruktor, da leere Liste als Attribut vorhanden
+        // constructor implementation
+        objects = new Object[0];
     }
     
     public MySet(Object[] initialElements) {
         // constructor implementation
+        objects = new Object[initialElements.length];
         for (int i = 0; i < initialElements.length; i++) {
-            objectList.add(initialElements[i]);
+            objects[i] = initialElements[i];
         }
     }
 
@@ -30,7 +32,18 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        objectList.add(obj);
+        //prüfen, ob das übergebene Object schon im Array vorhanden ist (Methode contains)
+        //weiteres Array mit Größe altes Array +1 anlegen, mit vorhandenen Werten füllen
+        //neuen Wert an letzte Stelle schreiben
+        //neues Array dem alten Array zuweisen und damit überschreiben
+        if (!this.contains(obj)) {
+            Object[] neuesArray = new Object[objects.length +1];
+            for (int i = 0; i < objects.length ; i++) {
+                neuesArray[i] = objects[i];
+            }
+            neuesArray[neuesArray.length-1] = obj;
+            objects = neuesArray;
+        }
     }
 
     /**
@@ -39,7 +52,17 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-        objectList.remove(obj);
+        if (this.contains(obj)) {
+            Object[] weiteresArray = new Object[objects.length-1];
+            int j = 0;
+            for (int i = 0; i < objects.length; i++) {
+                if (!objects[i].equals(obj)) {
+                    weiteresArray[j] = objects[i];
+                    j++;
+                }
+            }
+            objects = weiteresArray;
+        }
     }
 
     /**
@@ -49,18 +72,20 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        if (objectList.contains(obj)) {
-            return true;
-        } else {
-            return false;
+        for (int i = 0; i < objects.length ; i++) {
+            if (objects[i].equals(obj)) {
+                return true;
+            }
         }
+        return false;
+
     }
 
     /**
      * Returns the number of elements in set.
      */
     public int size() {
-        return objectList.size();
+        return objects.length;
     }
 
     /**
@@ -68,7 +93,11 @@ public class MySet {
      * @return <code>true</code> if there are no elements
      */
     public boolean isEmpty() {
-        return objectList.isEmpty();
+        if (objects.length == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
