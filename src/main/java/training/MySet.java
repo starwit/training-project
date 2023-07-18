@@ -1,62 +1,78 @@
 package training;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * A simplified (and non-generic) implementation of <code>java.util.Set&lt;E&gt;</code>.
- * Stores <code>Object</code> and makes sure that all <code>Object</code>
- * are unique, that is, no two <code>Object</code> of the set are equal.
- * <code>Object</code> equality is based on <code>Object.equals()</code>.
+ * A simplified (and non-generic) implementation of java.util.Set<E>.
+ * Stores Object and makes sure that all Object are unique, that is, no two Object of the set are equal.
+ * Object equality is based on Object.equals().
  */
+
+
 public class MySet {
 
+    private List<Object> objectList;
+
     public MySet() {
-        // constructor implementation
+        objectList = new ArrayList<>();
     }
-    
+
     public MySet(Object[] initialElements) {
-        // constructor implementation
+        objectList = new ArrayList<>();
+        for (Object obj : initialElements) {
+            add(obj);
+        }
     }
 
     /**
-     * Add <code>obj</code> to the set. If <code>obj</code> is already
-     * in set, nothing happens.
-     * @param obj The <code>Object</code> to be added.
+     * Add obj to the set. If obj is already in set, nothing happens.
+     *
+     * @param obj The Object to be added.
      */
     public void add(Object obj) {
-        return;
+        if (!objectList.contains(obj)) {
+            objectList.add(obj);
+        }
     }
 
     /**
-     * Removes <code>obj</code> from the set, if it exists. 
-     * If the set does not contain <code>obj</code>, nothing happens.
-     * @param obj The <code>Object</code> to be removed.
+     * Removes obj from the set, if it exists.
+     * If the set does not contain obj, nothing happens.
+     *
+     * @param obj The Object to be removed.
      */
     public void remove(Object obj) {
-        return;
+        objectList.remove(obj);
     }
 
     /**
      * Checks if the set contains a given element.
+     *
      * @param obj Element to be checked.
-     * @return Returns <code>true</code> if this set contains the given element. 
-     * <code>False</code> otherwise.
+     * @return Returns true if this set contains the given element. False otherwise.
      */
     public boolean contains(Object obj) {
-        return false;
+        return objectList.contains(obj);
     }
 
     /**
      * Returns the number of elements in set.
+     *
+     * @return The number of elements in the set.
      */
     public int size() {
-        return 0;
+        return objectList.size();
     }
 
     /**
      * Returns whether this set does not contain any elements.
-     * @return <code>true</code> if there are no elements
+     *
+     * @return true if there are no elements in the set, false otherwise.
      */
     public boolean isEmpty() {
-        return true;
+        return objectList.isEmpty();
     }
-
 }
+
+  
