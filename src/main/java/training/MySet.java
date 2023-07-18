@@ -1,5 +1,8 @@
 package training;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simplified (and non-generic) implementation of <code>java.util.Set&lt;E&gt;</code>.
  * Stores <code>Object</code> and makes sure that all <code>Object</code>
@@ -8,13 +11,17 @@ package training;
  */
 public class MySet {
 
+
+
     public MySet() {
         // constructor implementation
+        //Object[] objectArray = new Object[100];
+        // list<Object> objectlist = new ArrayList<>();
     }
-    
-    public MySet(Object[] initialElements) {
+    /*public MySet(Object[] initialElements) {
         // constructor implementation
-    }
+
+    }*/
 
     /**
      * Add <code>obj</code> to the set. If <code>obj</code> is already
@@ -23,6 +30,7 @@ public class MySet {
      */
     public void add(Object obj) {
         return;
+
     }
 
     /**
@@ -41,7 +49,7 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        return false;
+        return true;
     }
 
     /**
