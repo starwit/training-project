@@ -8,12 +8,14 @@ package training;
  */
 public class MySet {
 
+    private Object[] mySet;
     public MySet() {
-        // constructor implementation
+        this(new Object[0]);
     }
     
     public MySet(Object[] initialElements) {
         // constructor implementation
+        this.mySet = initialElements.clone();
     }
 
     /**
@@ -22,7 +24,11 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        return;
+        if (!this.contains(obj)) {
+            var temp = this.mySet;
+            mySet = new Object[mySet.length + 1];
+            mySet[mySet.length - 1] = obj;
+        }
     }
 
     /**
@@ -31,7 +37,10 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-        return;
+        int i = getIndex(obj);
+        if (i != -1) {
+            removeIndex(i);
+        }
     }
 
     /**
@@ -41,14 +50,14 @@ public class MySet {
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
-        return false;
+        return (this.getIndex(obj) > -1);
     }
 
     /**
      * Returns the number of elements in set.
      */
     public int size() {
-        return 0;
+        return mySet.length;
     }
 
     /**
@@ -56,7 +65,28 @@ public class MySet {
      * @return <code>true</code> if there are no elements
      */
     public boolean isEmpty() {
-        return true;
+        return (mySet.length == 0);
+    }
+
+    private int getIndex(Object obj) {
+        for (int i=0; i < mySet.length; i++) {
+            if (mySet[i].equals(obj)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void removeIndex(int i) {
+        var temp = mySet;
+        mySet = new Object[mySet.length - 1];
+        int pos = 0;
+        for (int m = 0; m < temp.length; m++) {
+           if (m != i) {
+               mySet[pos] = temp[m];
+               pos++;
+           }
+        }
     }
 
 }
