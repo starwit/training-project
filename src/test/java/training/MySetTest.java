@@ -22,11 +22,15 @@ public class MySetTest {
 
     @Test
     public void testAdd() {
+        Object[] elements1 = new Object[] {
+                "Toyota", "Mercedes", "BMW", "Volkswagen", "Skoda" };
         Integer elem1 = Integer.valueOf(1);
-        MySet set = new MySet();
+        MySet set = new MySet(elements1);
         set.add(elem1);
         assertTrue(set.contains(elem1));
-        assertEquals(1, set.size());
+        assertEquals(6, set.size());
+        assertTrue(set.retainAll(new MySet(elements1)));
+        assertEquals(5, set.size());
     }
 
     @Test

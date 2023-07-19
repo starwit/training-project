@@ -27,6 +27,7 @@ public class MySet {
         if (!this.contains(obj)) {
             var temp = this.mySet;
             mySet = new Object[mySet.length + 1];
+            System.arraycopy(temp, 0, mySet, 0, temp.length);
             mySet[mySet.length - 1] = obj;
         }
     }
