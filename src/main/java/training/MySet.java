@@ -11,17 +11,23 @@ import java.util.List;
  */
 public class MySet {
 
-
+      private Object[] sakwa;
 
     public MySet() {
+       sakwa= new Object[0];
         // constructor implementation
         //Object[] objectArray = new Object[100];
 
     }
-    /*public MySet(Object[] initialElements) {
+    public MySet(Object[] initialElements) {
         // constructor implementation
+        sakwa = new Object[initialElements.length];
+        for (int i = 0; i <initialElements.length ; i++) {
+            sakwa[i]= initialElements[i];
+        }
 
-    }*/
+
+    }
 
     /**
      * Add <code>obj</code> to the set. If <code>obj</code> is already
@@ -29,9 +35,20 @@ public class MySet {
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
-        return;
+       //if(!(this.contains(obj))){
+           Object []neuSakwa = new Object[sakwa.length+1];
+           for (int i = 0; i <sakwa.length ; i++) {
+               neuSakwa[i]= sakwa[i];
 
-    }
+           }
+        neuSakwa[sakwa.length] = obj;
+       sakwa= neuSakwa;
+       }
+
+        // return;
+
+
+
 
     /**
      * Removes <code>obj</code> from the set, if it exists. 
@@ -39,7 +56,11 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-        return;
+       if(this.contains(obj)){
+
+       }
+
+        //return;
     }
 
     /**
