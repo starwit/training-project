@@ -74,7 +74,19 @@ public class MySet {
      * @return <code>true</code> if the sets contain the same objects
      */
     public boolean equals(MySet compSet) {
-        return false;
+
+        // check for the same amount of elements
+        if (this.size() != compSet.size()) {
+            return false;
+        }
+
+        for (Object obj: compSet.mySet) {
+            if (!this.contains(obj)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -84,7 +96,15 @@ public class MySet {
      * @return <code>true</code> if elements were removed
      */
     public boolean retainAll(MySet set) {
-        return false;
+        Object[] temp = this.mySet;
+        boolean retValue = false;
+        for (Object obj: temp) {
+            if (!set.contains(obj)) {
+                this.remove(obj);
+                retValue = true;
+            }
+        }
+        return retValue;
     }
 
     // gets the index of the given object within the array, -1 if not found

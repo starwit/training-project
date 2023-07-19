@@ -80,9 +80,9 @@ public class MySetTest {
 
         Object[] elements2 = new Object[] {
                 "Toyota", "Mercedes", "BMW", "Volkswagen", "Seat" };
-        MySet set2 = new MySet(elements1);
+        MySet set2 = new MySet(elements2);
 
-        set1.retainAll(set2);
+        assertTrue(set1.retainAll(set2));
         assertEquals(4 , set1.size());
 
     }
