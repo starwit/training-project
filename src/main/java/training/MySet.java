@@ -39,7 +39,6 @@ public class MySet {
            Object []neuSakwa = new Object[sakwa.length+1];
            for (int i = 0; i <sakwa.length ; i++) {
                neuSakwa[i]= sakwa[i];
-
            }
         neuSakwa[sakwa.length] = obj;
        sakwa= neuSakwa;
@@ -56,7 +55,7 @@ public class MySet {
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
-       if(this.contains(obj)){
+       if(){
 
        }
 
