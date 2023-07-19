@@ -84,6 +84,5 @@ public class MySetTest {
 
         assertTrue(set1.retainAll(set2));
         assertEquals(4 , set1.size());
-
     }
 }
