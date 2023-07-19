@@ -57,4 +57,33 @@ public class MySetTest {
         assertEquals(999, set.size());
 
     }
+
+    @Test
+    public void testEquals() {
+        Object[] elements1 = new Object[] {
+                "Toyota", "Mercedes", "BMW", "Volkswagen", "Skoda" };
+        MySet set1 = new MySet(elements1);
+        MySet set2 = new MySet(elements1);
+
+        assertTrue(set1.equals(set2));
+
+        Object[] elements2 = new Object[] {1, 2, 3, 4};
+        set2 = new MySet(elements2);
+        assertFalse(set1.equals(set2));
+    }
+
+    @Test
+    public void testRetainAll() {
+        Object[] elements1 = new Object[] {
+                "Toyota", "Mercedes", "BMW", "Volkswagen", "Skoda" };
+        MySet set1 = new MySet(elements1);
+
+        Object[] elements2 = new Object[] {
+                "Toyota", "Mercedes", "BMW", "Volkswagen", "Seat" };
+        MySet set2 = new MySet(elements1);
+
+        set1.retainAll(set2);
+        assertEquals(4 , set1.size());
+
+    }
 }
