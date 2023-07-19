@@ -68,6 +68,25 @@ public class MySet {
         return (mySet.length == 0);
     }
 
+    /**
+     * Returns whether this set contains the same objects as the MySet parameter
+     * @param compSet
+     * @return <code>true</code> if the sets contain the same objects
+     */
+    public boolean equals(MySet compSet) {
+        return false;
+    }
+
+    /**
+     * Retains all matching elements in the current MySet instance that match all
+     * elements from MySet passed as a parameter to the method.
+     * @param set
+     * @return <code>true</code> if elements were removed
+     */
+    public boolean retainAll(MySet set) {
+        return false;
+    }
+
     // gets the index of the given object within the array, -1 if not found
     private int getIndex(Object obj) {
         for (int i=0; i < mySet.length; i++) {
