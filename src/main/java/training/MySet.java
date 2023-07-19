@@ -23,6 +23,10 @@ public class MySet {
     
     public MySet(Object[] initialElements) {
         // constructor implementation
+        for (int i = 0; i < initialElements.length; i++) {
+            Object obj = initialElements[i];
+            add(obj);
+        }
 
     }
     /**
