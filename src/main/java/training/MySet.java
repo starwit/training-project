@@ -8,26 +8,35 @@ package training;
  */
 public class MySet {
 
+    private Object[] elements;
+    private int size;
+
     public MySet() {
         // constructor implementation
+        elements = new Object[10];
+        size = 0;
     }
-    
+
     public MySet(Object[] initialElements) {
         // constructor implementation
     }
 
+
     /**
      * Add <code>obj</code> to the set. If <code>obj</code> is already
      * in set, nothing happens.
+     *
      * @param obj The <code>Object</code> to be added.
      */
     public void add(Object obj) {
+
         return;
     }
 
     /**
-     * Removes <code>obj</code> from the set, if it exists. 
+     * Removes <    }code>obj</code> from the set, if it exists.
      * If the set does not contain <code>obj</code>, nothing happens.
+     *
      * @param obj The <code>Object</code> to be removed.
      */
     public void remove(Object obj) {
@@ -36,8 +45,9 @@ public class MySet {
 
     /**
      * Checks if the set contains a given element.
+     *
      * @param obj Element to be checked.
-     * @return Returns <code>true</code> if this set contains the given element. 
+     * @return Returns <code>true</code> if this set contains the given element.
      * <code>False</code> otherwise.
      */
     public boolean contains(Object obj) {
@@ -53,6 +63,7 @@ public class MySet {
 
     /**
      * Returns whether this set does not contain any elements.
+     *
      * @return <code>true</code> if there are no elements
      */
     public boolean isEmpty() {
